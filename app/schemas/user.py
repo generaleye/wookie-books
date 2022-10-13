@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Sequence
 
 from pydantic import BaseModel, EmailStr
 
@@ -19,7 +19,11 @@ class UserCreate(UserBase):
 
 # Properties to receive via API on update
 class UserUpdate(UserBase):
-    ...
+    id: int
+
+
+class UserDelete(BaseModel):
+    id: int
 
 
 class UserInDBBase(UserBase):
@@ -36,4 +40,12 @@ class UserInDB(UserInDBBase):
 
 # Additional properties to return via API
 class User(UserInDBBase):
-    ...
+    pass
+
+
+class UserAuthor(BaseModel):
+    author_pseudonym: str
+
+
+class UserSearchResults(BaseModel):
+    results: Sequence[User]
