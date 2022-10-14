@@ -11,10 +11,11 @@ logger = logging.getLogger(__name__)
 BOOKS = [
     {
         "id": 1,
-        "title": "Man and the Lion",
-        "description": "This is a story about a man and a lion",
-        "cover_image": "http://www.manandthelion.com/images/logo.png",
+        "title": "Return of the Jedi",
+        "description": "This is a story about the return of the Jedi",
+        "cover_image": "http://www.returnofthejedi.com/images/logo.png",
         "price": 39.3,
+        "author_id": 1,
     }
 ]
 
@@ -52,10 +53,9 @@ def init_db(db: Session) -> None:
                     title=book["title"],
                     description=book["description"],
                     cover_image=book["cover_image"],
-                    price=book["price"],
-                    author_id=user.id,
+                    price=book["price"]
                 )
-                crud.book.create(db, obj_in=book_in)
+                crud.book.create_with_author(db=db, obj_in=book_in, author_id=user.id)
     else:
         logger.warning(
             "Skipping creating superuser.  FIRST_SUPERUSER needs to be "

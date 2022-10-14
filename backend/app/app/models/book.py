@@ -10,5 +10,5 @@ class Book(Base):
     description = Column(String(256), nullable=False)
     cover_image = Column(String(256), index=True, nullable=True)
     price = Column(Numeric(10, 2), nullable=True)
-    author_id = Column(Integer, ForeignKey("user.id"), nullable=True)
+    author_id = Column(Integer, ForeignKey("user.id"), nullable=False)
     author = relationship("User", back_populates="books")
