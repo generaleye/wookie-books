@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# Uncomment for Docker
 # Docker postgres addon
 export SQLALCHEMY_DATABASE_URI=${DATABASE_URL}
 
@@ -21,6 +22,8 @@ export BACKEND_CORS_ORIGINS=${BACKEND_CORS_ORIGINS}
 
 # run gunicorn
 exec gunicorn --bind $HOST:$PORT "$APP_MODULE" -k uvicorn.workers.UvicornWorker
+
+# End of Docker testing
 
 
 # Uncomment for local testing
