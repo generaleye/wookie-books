@@ -21,10 +21,10 @@ class BookCreate(BookBase):
 
 class BookUpdate(BookBase):
     id: int
-    title: str
-    description: str
-    price: float
-    cover_image: HttpUrl
+    title: Optional[str] = None
+    description: Optional[str] = None
+    price: Optional[float] = None
+    cover_image: Optional[HttpUrl] = None
 
 
 class BookUpdateRestricted(BaseModel):

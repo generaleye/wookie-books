@@ -34,14 +34,14 @@ def login(
     }
 
 
-# @router.get("/me", response_model=schemas.User)
-# def read_users_me(current_user: User = Depends(deps.get_current_user)):
-#     """
-#     Fetch the current logged in user.
-#     """
-#
-#     user = current_user
-#     return user
+@router.get("/me", response_model=schemas.User)
+def read_users_me(current_user: User = Depends(deps.get_current_user)):
+    """
+    Fetch the current logged in user.
+    """
+
+    user = current_user
+    return user
 
 
 @router.post("/signup", response_model=schemas.User, status_code=201)
