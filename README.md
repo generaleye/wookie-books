@@ -8,7 +8,7 @@ Make sure you have Docker and Docker Compose installed. This makes use of Postgr
 3. Visit `http://localhost:8001/` and `http://localhost:8001/docs` for the documentation
 
 
-If you want to run locally with `Poetry`, follow these steps listed below instead. This makes use of SQLite.
+If you want to run without Docker with `Poetry`, follow these steps listed below instead. This makes use of SQLite.
 
 1. `pip install poetry`
 2. Install dependencies `cd` into the `app` directory where the `pyproject.toml` is located then `poetry install`
